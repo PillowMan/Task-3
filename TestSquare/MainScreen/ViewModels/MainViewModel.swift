@@ -16,8 +16,7 @@ class MainViewModel: MainViewModelProtocol {
     }
     
     func setRectangleScale(_ value: Float, completion: @escaping ()->()) {
-        guard let _ = square else {return}
-        square!.sideSize = square!.sideSize * value
+        square?.sideSize *= value
             completion()
         }
     
