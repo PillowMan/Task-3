@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = MainViewController()
-            let square = Square(color: .green, sideSize: 100, position: Position(x: 0, y: 0))
+            let square = Square(color: .red, sideSize: 100, position: Position(x: 0, y: 0))
         let viewModel = MainViewModel(square: square)
         viewController.viewModel = viewModel
         window?.rootViewController = viewController
