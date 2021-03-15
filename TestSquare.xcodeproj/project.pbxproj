@@ -20,6 +20,9 @@
 		650AA71F25FD29A000008719 /* MainViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650AA71E25FD29A000008719 /* MainViewModelProtocol.swift */; };
 		650AA72425FD2A8100008719 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650AA72325FD2A8100008719 /* Rectangle.swift */; };
 		650AA73425FD362C00008719 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650AA73325FD362C00008719 /* MainViewModel.swift */; };
+		6549785625FFE6B300936BF1 /* LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549785525FFE6B300936BF1 /* LayoutAnchor.swift */; };
+		6549785C25FFE8A200936BF1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549785B25FFE8A200936BF1 /* UIView+Extension.swift */; };
+		6549786426001B4C00936BF1 /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549786326001B4C00936BF1 /* NSLayoutConstraint+Extension.swift */; };
 		654E5AE325FE022D009F2E60 /* TestMainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654E5AE225FE022D009F2E60 /* TestMainViewModelTests.swift */; };
 		654E5AFC25FE2164009F2E60 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654E5AFB25FE2164009F2E60 /* Position.swift */; };
 		6569AD7C25FEAEB20050351C /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569AD7B25FEAEB20050351C /* Box.swift */; };
@@ -62,6 +65,9 @@
 		650AA71E25FD29A000008719 /* MainViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelProtocol.swift; sourceTree = "<group>"; };
 		650AA72325FD2A8100008719 /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		650AA73325FD362C00008719 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		6549785525FFE6B300936BF1 /* LayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAnchor.swift; sourceTree = "<group>"; };
+		6549785B25FFE8A200936BF1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		6549786326001B4C00936BF1 /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
 		654E5AE225FE022D009F2E60 /* TestMainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMainViewModelTests.swift; sourceTree = "<group>"; };
 		654E5AFB25FE2164009F2E60 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		6569AD7B25FEAEB20050351C /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 		650AA6DA25FCEB1800008719 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				6549785A25FFE87300936BF1 /* Helpers */,
 				650AA6DF25FCEB7D00008719 /* Controller */,
 				650AA6DE25FCEB6D00008719 /* View */,
 				650AA6DD25FCEB6200008719 /* Model */,
@@ -201,6 +208,7 @@
 			children = (
 				654E5AFB25FE2164009F2E60 /* Position.swift */,
 				6569AD7B25FEAEB20050351C /* Box.swift */,
+				6549785525FFE6B300936BF1 /* LayoutAnchor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +270,15 @@
 				650AA72325FD2A8100008719 /* Rectangle.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6549785A25FFE87300936BF1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6549785B25FFE8A200936BF1 /* UIView+Extension.swift */,
+				6549786326001B4C00936BF1 /* NSLayoutConstraint+Extension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +411,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				654E5AFC25FE2164009F2E60 /* Position.swift in Sources */,
+				6549786426001B4C00936BF1 /* NSLayoutConstraint+Extension.swift in Sources */,
+				6549785C25FFE8A200936BF1 /* UIView+Extension.swift in Sources */,
 				650AA6F925FD204300008719 /* Square.swift in Sources */,
 				650AA70525FD21C700008719 /* UIColor+Helpers.swift in Sources */,
 				650AA71F25FD29A000008719 /* MainViewModelProtocol.swift in Sources */,
@@ -403,6 +422,7 @@
 				650AA6FE25FD211200008719 /* Color.swift in Sources */,
 				650AA6A725FCE97C00008719 /* SceneDelegate.swift in Sources */,
 				6569AD7C25FEAEB20050351C /* Box.swift in Sources */,
+				6549785625FFE6B300936BF1 /* LayoutAnchor.swift in Sources */,
 				650AA73425FD362C00008719 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

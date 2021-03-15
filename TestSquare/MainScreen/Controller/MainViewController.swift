@@ -20,9 +20,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(squareLabel)
-        configSquareLabelConstraint()
+        self.view.addSubview(squareLabel, anchors: [.centerX(0),.centerY(0)])
+        initSquareLabelSizeConstraint()
         self.view.backgroundColor = .cyan
+        
         
         viewModel?.square.bind(listener: { (square) in
             guard let square = square, let color = square.color else {return}
@@ -38,21 +39,15 @@ class MainViewController: UIViewController {
                 }
             }
         }
-        
-       
     }
     
-    
-    private func configSquareLabelConstraint(){
-        squareLabel.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = squareLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        let verticalConstraint = squareLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+    private func initSquareLabelSizeConstraint(){
         self.squareHeightAnchor = squareLabel.heightAnchor.constraint(equalToConstant: 0)
         self.squareWidthAnchor = squareLabel.widthAnchor.constraint(equalToConstant: 0)
-        NSLayoutConstraint.activate([horizontalConstraint,verticalConstraint,squareWidthAnchor!, squareHeightAnchor!])
+        NSLayoutConstraint.activate([squareWidthAnchor!, squareHeightAnchor!])
     }
     
-  
+    
     
     
     
