@@ -8,6 +8,6 @@
 import Foundation
 
 protocol MainViewModelProtocol {
-    var square: Rectangle? {get set}
+    var square: Box<Square?> {get set}
     func setRectangleScale(_ value: Float, completion: @escaping ()->())
 }

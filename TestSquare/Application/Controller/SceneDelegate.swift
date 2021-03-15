@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         let viewController = MainViewController()
         let square = Square(color: .red, sideSize: 100, position: Position(x: 0, y: 0))
-        let viewModel = MainViewModel(square: square)
+        let viewModel = MainViewModel()
+        viewModel.square = Box(square)
         viewController.viewModel = viewModel
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()

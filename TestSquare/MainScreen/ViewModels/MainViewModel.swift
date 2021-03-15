@@ -9,15 +9,11 @@ import Foundation
 
 class MainViewModel: MainViewModelProtocol {
     
-    var square: Rectangle?
-    
-    init(square: Rectangle?) {
-        self.square = square
-    }
+    var square: Box<Square?> = Box(nil)
     
     func setRectangleScale(_ value: Float, completion: @escaping ()->()) {
-        square?.sideSize *= value
-            completion()
-        }
+        square.value?.sideSize *= value
+        completion()
+    }
     
 }

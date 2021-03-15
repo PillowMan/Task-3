@@ -10,41 +10,55 @@ import UIKit
 class MainViewController: UIViewController {
     
     
-    var squareLabel: UILabel?
+    var squareLabel: UILabel = UILabel()
     
     var squareHeightAnchor: NSLayoutConstraint?
     var squareWidthAnchor: NSLayoutConstraint?
     
     var viewModel: MainViewModelProtocol?
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        squareLabel = createSquareLabel()
+        self.view.addSubview(squareLabel)
+        configSquareLabelConstraint()
         self.view.backgroundColor = .cyan
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        guard let viewModel = viewModel else {return}
+        viewModel?.square.bind(listener: { (square) in
+            guard let square = square, let color = square.color else {return}
+            self.squareLabel.backgroundColor = UIColor(hex: color.rawValue)
+            self.squareWidthAnchor?.constant = CGFloat(square.sideSize)
+            self.squareHeightAnchor?.constant = CGFloat(square.sideSize)
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            guard let viewModel = self.viewModel else {return}
             viewModel.setRectangleScale(2){
-                guard let square = viewModel.square else {return}
-                self.squareHeightAnchor?.constant = CGFloat(square.sideSize)
-                self.squareWidthAnchor?.constant = CGFloat(square.sideSize)
-                UIView.animate(withDuration: 2) {
-                    self.squareLabel?.layoutIfNeeded()
+                UIView.animate(withDuration: 1) {
+                    self.view.layoutIfNeeded()
                 }
             }
+        }
         
        
     }
     
     
-   
+    private func configSquareLabelConstraint(){
+        squareLabel.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = squareLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        let verticalConstraint = squareLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        self.squareHeightAnchor = squareLabel.heightAnchor.constraint(equalToConstant: 0)
+        self.squareWidthAnchor = squareLabel.widthAnchor.constraint(equalToConstant: 0)
+        NSLayoutConstraint.activate([horizontalConstraint,verticalConstraint,squareWidthAnchor!, squareHeightAnchor!])
+    }
     
-   
-
-
+  
+    
+    
+    
+    
+    
+    
+    
 }
 
